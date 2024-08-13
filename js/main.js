@@ -1,55 +1,91 @@
-//Objetos
-const pantalonShortSlim ={
-    nombre: "Pantalon corto Slim Fit",
-    color: "Negro",
-    size: "M",
-    material: "jogging",
-    bolsillos: 2
+const secciones =["Inicio", "carrito"]
+let encabezado = document.getElementById("encabezado")
+
+for (pagina of secciones){  
+
+    let navLink=document.createElement("li")
+    navLink.id =("nav__link")
+
+    let nav__link__text = document.createElement("a")
+    nav__link__text.id =("nav__link__text")
+    nav__link__text.textContent=pagina
+    if (pagina == ("Inicio")){
+        nav__link__text.href=("./index.html")
+    }
+    else{
+        nav__link__text.href=("../html/"+pagina+".html")
+    }
+    
+
+    navLink.appendChild(nav__link__text)
+    encabezado.appendChild(navLink)
 }
-const pantalonShortTheKing ={
-    nombre: "Pantalon The King",
-    color: "Gris",
-    size: "XL",
-    material: "jogging",
-    bolsillos: 2
+
+
+class Prenda{
+    static id = 0
+    constructor(nombre, color, size, material, marca, bolsillos, precio){
+        this.id= ++ Prenda.id
+        this.nombre=nombre,
+        this.color=color,
+        this.size=size,
+        this.material=material,
+        this.marca=marca,
+        this.bolsillos=bolsillos,
+        this.precio=precio
+    }
 }
-const remeraOversizeNegra ={
-    nombre: "Remera Overzice Negra",
-    color: "Negro",
-    size: "L",
-    material: "Algodon",
-    bolsillos: 0
-}
-const remeraMusculosaRoja ={
-    nombre: "Remera Musculosa Roja",
-    color: "Rojo",
-    size: "M",
-    material: "Algodon",
-    bolsillos: 0
-}
-const remeraMusculosaNegra ={
-    nombre: "Remera Musculosa Negra",
-    color: "Negro",
-    size: "L",
-    material: "Algodon",
-    bolsillos: 0
-}
+const pantalonShortSlim= new Prenda("Pantalon corto Slim Fit","Negro","M","jogging","shark","0","1200")
+const pantalonShortTheKing= new Prenda("Pantalon The King","Gris","XL","jogging","shark","2","2000")
+const remeraOversizeNegra= new Prenda("Remera Overzice Negra","Negro","L","Algodon","shark","0","3200")
+const remeraMusculosaRoja= new Prenda("Remera Musculosa Roja","Rojo","M","Algodon","shark","0","4200")
+const remeraMusculosaNegra= new Prenda("Remera Musculosa Negra","Negro","L","Algodon","shark","0","200")
+
 
 const listaStockGen= [pantalonShortSlim, pantalonShortTheKing, remeraOversizeNegra, remeraMusculosaRoja, remeraMusculosaNegra]
 const listaPrendaVenta= [pantalonShortSlim, pantalonShortTheKing, remeraOversizeNegra]
-const listaCarroCompra=[]
-
-function generarCatalogo(lista) {
-    let contCatalogo=0
-    let CatalogoPrenda = "\n";
-    for (let prenda of lista){
-        contCatalogo++;
-        CatalogoPrenda += "Prenda "+ contCatalogo +":\n";
-        CatalogoPrenda += "Nombre: "+ prenda.nombre+"\n";
-        CatalogoPrenda += "Color: "+ prenda.color+"\n\n";
-    }
-    return CatalogoPrenda;
+let listaCarroCompra=[]
+if (JSON.parse(localStorage.getItem("cartProducts"))!==null){
+    listaCarroCompra=JSON.parse(localStorage.getItem("cartProducts"))
 }
+
+
+
+let productos =document.getElementById("shop-productos")
+function generarCatalogoShop(lista) {
+    for (let prenda of lista){
+        let articulo = document.createElement("article")
+
+        let nombre = document.createElement("h4")
+        nombre.textContent = "Nombre: " + prenda.nombre
+
+        let color = document.createElement("div")
+        color.textContent = "Color: " + prenda.color
+
+        let precio = document.createElement("div")
+        precio.textContent = "Precio: $ " + prenda.precio
+
+        let boton = document.createElement("button")
+        boton.id = ("boton-agregar-carrito"+prenda.id)
+        boton.textContent = "Agregar al Carrito"
+        boton.addEventListener("click", function() {
+            if (!listaCarroCompra.includes(listaCarroCompra[prenda.id-1])){
+            agregarALista(listaCarroCompra, listaPrendaVenta, prenda.id)
+            localStorage.setItem("cartProducts", JSON.stringify(listaCarroCompra))
+            }
+        });
+        articulo.appendChild(nombre)
+        articulo.appendChild(color)
+        articulo.appendChild(precio)
+        articulo.appendChild(boton)
+        productos.appendChild(articulo)
+    }
+
+}
+let titulo = document.getElementById("title")
+titulo.innerText="Tienda TitanFit"
+generarCatalogoShop(listaPrendaVenta)
+
 
 function agregarALista(listaAgregar, listaOrigen, numAg){
     listaAgregar.push(listaOrigen[numAg-1])
@@ -60,62 +96,4 @@ function quitarDeLista(listaQuitar, numQuit){
 }
 function repetidoEnLista(listaOrg, listaComp, indListaOrg){
     return listaComp.includes(listaOrg[indListaOrg-1])
-}
-
-let menu =parseInt (prompt ("Elija una opcion: \n 1-Catalogo de Prendas\n 2-Agregar al carrito de compras \n 3-Ver Carrito de Compras \n 4-Quitar del Carrito de Compras \n 5-Agregar articulo a Catalogo de Venta \n 6-Quitar articulo de Catalogo de Venta \n 7-Salir"))
-while(menu !== 7) {
-    switch(menu){
-
-        case 1:
-            alert("Catalogo de Prendas: \n" + generarCatalogo(listaPrendaVenta))
-        break
-
-        case 2:
-            let indiceCarrito=parseInt (prompt("Agregar al carrito de compras\n"+ generarCatalogo(listaPrendaVenta)))
-                if (indiceCarrito >0 && indiceCarrito <= listaPrendaVenta.length)
-                    agregarALista(listaCarroCompra, listaPrendaVenta, indiceCarrito)
-                else
-                    alert("Opcion invalida!")
-        break
-
-        case 3:
-            alert("Carrito de compras: \n" + generarCatalogo(listaCarroCompra))
-        break
-
-        case 4:
-            let indiceQuitar=parseInt(prompt("Quitar de carrito de compras: \n"+ generarCatalogo(listaCarroCompra)))
-            if (indiceQuitar >0 && indiceQuitar <= listaCarroCompra.length)
-                quitarDeLista(listaCarroCompra, indiceQuitar)
-            else
-                alert("Opcion invalida!")
-
-        break
-
-        case 5:
-            let indiceAgregar=parseInt (prompt("Agregar articulo a Catalogo de Venta\n"+ generarCatalogo(listaStockGen)))
-            if (indiceAgregar >0 && indiceAgregar <= listaStockGen.length)
-                if (repetidoEnLista(listaStockGen, listaPrendaVenta, indiceAgregar))
-                    alert("La prenda ya esta a la Venta")
-                else
-                    agregarALista(listaPrendaVenta, listaStockGen, indiceAgregar)
-            else
-                alert("Opcion invalida!")
-        break
-        case 6:
-            let indiceQuitarVenta=parseInt(prompt("Quitar de Catalogo de Venta: \n"+ generarCatalogo(listaPrendaVenta)))
-            if (indiceQuitarVenta >0 && indiceQuitarVenta <= listaPrendaVenta.length)
-                quitarDeLista(listaPrendaVenta, indiceQuitarVenta)
-            else
-                alert("Opcion invalida!")
-        break
-
-        case 7:
-        break
-            
-        default:
-            alert("opcion invalida!")
-        }
-        
-    menu =parseInt (prompt ("Elija una opcion: \n 1-Catalogo de Prendas\n 2-Agregar al carrito de compras \n 3-Ver Carrito de Compras \n 4-Quitar del Carrito de Compras \n 5-Agregar articulo a Catalogo de Venta \n 6-Quitar articulo de Catalogo de Venta \n 7-Salir"))
-
 }
