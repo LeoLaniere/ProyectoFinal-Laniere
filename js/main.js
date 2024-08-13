@@ -13,7 +13,7 @@ for (pagina of secciones){
         nav__link__text.href=("./index.html")
     }
     else{
-        nav__link__text.href=("../html/"+pagina+".html")
+        nav__link__text.href=("./html/"+pagina+".html")
     }
     
 
