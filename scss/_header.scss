@@ -1,0 +1,51 @@
+@import './reset/variables';
+/*header*/
+
+.bg-body-tertiary {
+    --bs-bg-opacity: 0;
+    font-family: $fuente-links;
+    font-size: 18px;
+    
+}
+
+.encabezado{
+    background-image: url(../assets/banner.jpg);
+    background-repeat:no-repeat;
+    background-position: center;
+    background-size: cover;
+        &__titulo{
+            font-family: $fuente-titulos;
+            font-size: map-get($tam-textos, header-xl);
+            color: $color-naranjatitan;
+            margin-bottom: 0;
+        }
+    align-items: center;
+}
+.nav{
+    &__link{
+        font-family: $fuente-links;
+        display: inline-block;
+        margin-left: 20px;
+        margin-top: 20px;
+        font-size: 18px;
+
+        &__text{
+            color: $color-naranjatitan;
+            text-decoration: none;
+            font-weight: 800;
+
+        }
+    }
+}
+
+.navbar-nav-scroll{
+    height:80px;
+}
+.navbar-toggler {
+    background-color: $color-naranjatitan;
+    border-color: $color-naranjatitan;
+}
+
+.encabezado__titulo{
+    font-size: map-get($tam-textos, header-sm);
+}

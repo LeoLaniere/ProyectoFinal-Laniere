@@ -1,0 +1,71 @@
+{
+    "prendas": [
+      {
+        "id": 1,
+        "nombre": "Pantalon corto Slim Fit",
+        "img":"short-neg-logo-1.webp",
+        "color": "Negro",
+        "size": "M",
+        "material": "jogging",
+        "marca": "shark",
+        "enCarrito": 0,
+        "precio": 12000
+      },
+      {
+        "id": 2,
+        "nombre": "Remera Musculosa Negra OG",
+        "img":"rem-musc-neg-og-2.webp",
+        "color": "Gris",
+        "size": "XL",
+        "material": "algodon",
+        "marca": "shark",
+        "enCarrito": 0,
+        "precio": 20000
+      },
+      {
+        "id": 3,
+        "nombre": "Remera Overzice Negra",
+        "img":"rem-cort-negra-1.webp",
+        "color": "Negro",
+        "size": "L",
+        "material": "Algodon",
+        "marca": "shark",
+        "enCarrito": 0,
+        "precio": 32000
+      },
+      {
+        "id": 4,
+        "nombre": "Remera Corta Roja",
+        "img":"rem-corta-roja-2.webp",
+        "color": "Rojo",
+        "size": "M",
+        "material": "Algodon",
+        "marca": "shark",
+        "enCarrito": 0,
+        "precio": 22000
+      },
+      {
+        "id": 5,
+        "nombre": "Remera Musculosa Negra",
+        "img":"rem-musc-neg-1.webp",
+        "color": "Negro",
+        "size": "L",
+        "material": "Algodon",
+        "marca": "shark",
+        "enCarrito": 0,
+        "precio": 20000
+      },
+      {
+        "id": 6,
+        "nombre": "Remera Larga Negra",
+        "img":"rem-neg-frase-2.webp",
+        "color": "Negro",
+        "size": "L",
+        "material": "Algodon",
+        "marca": "shark",
+        "enCarrito": 0,
+        "precio": 31000
+      }
+    ]
+  }
+  

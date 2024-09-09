@@ -1,0 +1,100 @@
+@import './reset/variables';
+
+.containerApi{
+    background-color:$color-grisfondo;  
+
+}
+
+
+/* Boton Shop */ 
+.card__boton {
+    padding: 15px 25px;
+    border: unset;
+    border-radius: 15px;
+    color: #212121;
+    z-index: 1;
+    background: #e8e8e8;
+    position: relative;
+    font-weight: 1000;
+    font-size: 90%;
+    -webkit-box-shadow: 4px 8px 19px -3px #00000045;
+    box-shadow: 4px 8px 19px -3px #00000045;
+    transition: all 250ms;
+    overflow: hidden;
+   }
+   
+   .card__boton::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0;
+    border-radius: 15px;
+    background-color: #212121;
+    z-index: -1;
+    -webkit-box-shadow: 4px 8px 19px -3px #00000045;
+    box-shadow: 4px 8px 19px -3px #00000045;
+    transition: all 250ms
+   }
+   
+   .card__boton:hover {
+    color: #e8e8e8;
+   }
+   
+   .card__boton:hover::before {
+    width: 100%;
+   }
+
+
+/* Cards Compra*/
+
+.card-prenda{
+    border: solid;
+    border-radius: 2%;
+    width: 30%;
+}
+.img-fluid{
+    width: 90%;
+}
+
+/* Carrito Compra */
+.carrito-productos{
+    background-color: $color-grisfondo;
+    size: 100%;
+}
+
+/* Cards Carrito */
+.col-md-4{
+    border: solid;
+    width: 30%;
+}
+.col-md-8{
+    border: solid;
+    border-width: 0.2rem;
+}
+.mb-3{
+    background-color: grey;
+}
+.card-text{
+    font-size: 1.5rem;
+}
+.formulario{
+    font-size: 1rem;
+}
+
+.boton-compra{
+    width: 50%;
+    color: $color-negro;
+    border-color: $color-negro;
+    border-width: 0.3rem;
+    border-radius: 10%;
+    margin-bottom: 3%;
+    margin-left: 20%;
+}
+
+.mensajeCarroVacio{
+    font-size: 2rem;
+    padding: 2rem;
+    font:$fuente-links
+}

@@ -1,0 +1,170 @@
+/*reset*/
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Nunito", sans-serif;
+  font-weight: 400;
+}
+
+/*header*/
+.bg-body-tertiary {
+  --bs-bg-opacity: 0;
+  font-family: "Bungee Hairline", sans-serif;
+  font-size: 18px;
+}
+
+.encabezado {
+  background-image: url(../assets/banner.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  align-items: center;
+}
+.encabezado__titulo {
+  font-family: "Big Shoulders Stencil Display", sans-serif;
+  font-size: 6rem;
+  color: #FFA500;
+  margin-bottom: 0;
+}
+
+.nav__link {
+  font-family: "Bungee Hairline", sans-serif;
+  display: inline-block;
+  margin-left: 20px;
+  margin-top: 20px;
+  font-size: 18px;
+}
+.nav__link__text {
+  color: #FFA500;
+  text-decoration: none;
+  font-weight: 800;
+}
+
+.navbar-nav-scroll {
+  height: 80px;
+}
+
+.navbar-toggler {
+  background-color: #FFA500;
+  border-color: #FFA500;
+}
+
+.encabezado__titulo {
+  font-size: 4rem;
+}
+
+.containerApi {
+  background-color: #666666;
+}
+
+/* Boton Shop */
+.card__boton {
+  padding: 15px 25px;
+  border: unset;
+  border-radius: 15px;
+  color: #212121;
+  z-index: 1;
+  background: #e8e8e8;
+  position: relative;
+  font-weight: 1000;
+  font-size: 90%;
+  -webkit-box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.2705882353);
+  box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.2705882353);
+  transition: all 250ms;
+  overflow: hidden;
+}
+
+.card__boton::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 0;
+  border-radius: 15px;
+  background-color: #212121;
+  z-index: -1;
+  -webkit-box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.2705882353);
+  box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.2705882353);
+  transition: all 250ms;
+}
+
+.card__boton:hover {
+  color: #e8e8e8;
+}
+
+.card__boton:hover::before {
+  width: 100%;
+}
+
+/* Cards Compra*/
+.card-prenda {
+  border: solid;
+  border-radius: 2%;
+  width: 30%;
+}
+
+.img-fluid {
+  width: 90%;
+}
+
+/* Carrito Compra */
+.carrito-productos {
+  background-color: #666666;
+  size: 100%;
+}
+
+/* Cards Carrito */
+.col-md-4 {
+  border: solid;
+  width: 30%;
+}
+
+.col-md-8 {
+  border: solid;
+  border-width: 0.2rem;
+}
+
+.mb-3 {
+  background-color: grey;
+}
+
+.card-text {
+  font-size: 1.5rem;
+}
+
+.formulario {
+  font-size: 1rem;
+}
+
+.boton-compra {
+  width: 50%;
+  color: #000000;
+  border-color: #000000;
+  border-width: 0.3rem;
+  border-radius: 10%;
+  margin-bottom: 3%;
+  margin-left: 20%;
+}
+
+.mensajeCarroVacio {
+  font-size: 2rem;
+  padding: 2rem;
+  font: "Bungee Hairline", sans-serif;
+}
+
+/*footer*/
+.pie {
+  background-color: #333333;
+}
+.pie a {
+  color: #adada7;
+}
+
+.d-inline-block {
+  display: inline-block;
+  width: 30px;
+  height: 24px;
+}
+
+/*# sourceMappingURL=main.css.map */
