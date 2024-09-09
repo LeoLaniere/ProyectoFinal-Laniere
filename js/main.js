@@ -62,7 +62,7 @@ fetch("./db/data.json")
         prendas.forEach(prenda => {
             let image = document.createElement("img")
             image.className="img-fluid"
-            image.src="../assets/shop/"+prenda.img
+            image.src="./assets/shop/"+prenda.img
 
             let articulo = document.createElement("article")
             articulo.id="card-prenda"
