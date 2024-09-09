@@ -72,7 +72,7 @@ function generarCatalogoCarrito(lista) {
         colImgCard.className="col-md-4"
 
         let imagenCard = document.createElement("img")
-        imagenCard.src="../assets/shop/"+prenda.img
+        imagenCard.src="./assets/shop/"+prenda.img
         imagenCard.className="img-fluid rounded-start"
 
         let colTextCard=document.createElement("div")
